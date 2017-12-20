@@ -40,7 +40,7 @@ def get_meta(context):
       date_range_begin = (elem.findtext("date_range/begin", 'NULL')).translate(None, ',')
       date_range_end = (elem.findtext("date_range/end", 'NULL')).translate(None, ',')
 
-      report_meta =  "org_name=" + org_name + ", email=" + email + ", extra_contact_info=" + extra_contact_info \
+      report_meta =  "org_name='" + org_name + "', email=" + email + ", extra_contact_info=" + extra_contact_info \
             + ", date_range_begin=" + date_range_begin + ", date_range_end=" + date_range_end
       rm = 1
       root.clear();
