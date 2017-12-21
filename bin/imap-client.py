@@ -101,7 +101,8 @@ def main():
     options.add_argument("-s", "--host", help="imap server; eg. imap.mail.yahoo.com", required=True)
     options.add_argument("-p", "--port", help="imap server port; Default is 143", default=143)
     options.add_argument("-u", "--user", help="user's email id", required=True)
-    options.add_argument("-f", "--folder", help="mail folder from which the mail to retrieve", required=True)
+    options.add_argument("-f", "--folder", help="mail folder from which the mail to retrieve; Default is INBOX",
+                         default="INBOX")
     options.add_argument("-o", "--outdir", help="directory to output", required=True)
     options.add_argument("-S", "--search",
                          help="search criteria, defined in IMAP RFC 3501; eg. \"SINCE \\\"8-Sep-2014\\\"\"",
