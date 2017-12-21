@@ -79,7 +79,7 @@ def process_mailbox(mail):
                     print(filename)
                     count = count + 1
                     if os.path.exists(filename):
-                        print(mail.store(num, '+FLAGS', '\\Deleted'))
+                        mail.store(num, '+FLAGS', '\\Deleted')
                     else:
                         print("ERROR file was not written", filename, file=sys.stderr)
 
