@@ -33,12 +33,12 @@ def get_meta(context):
   for event, elem in context:
     if event == "end" and elem.tag == "report_metadata":
       # process record elements
-      org_name = (elem.findtext("org_name", 'NULL')).translate(None, ',')
-      email = (elem.findtext("email", 'NULL')).translate(None, ',')
-      extra_contact_info = (elem.findtext("extra_contact_info", 'NULL')).translate(None, ',')
-      report_id = (elem.findtext("report_id", 'NULL')).translate(None, ',')
-      date_range_begin = (elem.findtext("date_range/begin", 'NULL')).translate(None, ',')
-      date_range_end = (elem.findtext("date_range/end", 'NULL')).translate(None, ',')
+      org_name = (elem.findtext("org_name", '')).translate(None, ',')
+      email = (elem.findtext("email", '')).translate(None, ',')
+      extra_contact_info = (elem.findtext("extra_contact_info", '')).translate(None, ',')
+      report_id = (elem.findtext("report_id", '')).translate(None, ',')
+      date_range_begin = (elem.findtext("date_range/begin", '')).translate(None, ',')
+      date_range_end = (elem.findtext("date_range/end", '')).translate(None, ',')
 
       report_meta =  "org_name='" + org_name + "', email=" + email + ", extra_contact_info=" + extra_contact_info \
             + ", date_range_begin=" + date_range_begin + ", date_range_end=" + date_range_end + ", report_id=" + report_id
@@ -47,11 +47,11 @@ def get_meta(context):
       continue
 
     if event == "end" and elem.tag == "policy_published":
-      domain = elem.findtext("domain", 'NULL')
-      adkim = elem.findtext("adkim", 'NULL')
-      aspf = elem.findtext("aspf", 'NULL')
-      p = elem.findtext("p", 'NULL')
-      pct = elem.findtext("pct", 'NULL')
+      domain = elem.findtext("domain", '')
+      adkim = elem.findtext("adkim", '')
+      aspf = elem.findtext("aspf", '')
+      p = elem.findtext("p", '')
+      pct = elem.findtext("pct", '')
 
       feedback_pub = "domain=" + domain + ", adkim=" + adkim + ", aspf=" + aspf + ", p=" + p + ", pct=" + pct
       pp = 1
@@ -75,20 +75,20 @@ def print_record(context, meta, args):
 
       # process record elements
       # NOTE: This may require additional input validation
-      source_ip = (elem.findtext("row/source_ip", 'NULL')).translate(None, ',')
-      count = (elem.findtext("row/count", 'NULL')).translate(None, ',')
-      disposition = (elem.findtext("row/policy_evaluated/disposition", 'NULL')).translate(None, ',')
-      dkim = (elem.findtext("row/policy_evaluated/dkim", 'NULL')).translate(None, ',')
-      spf = (elem.findtext("row/policy_evaluated/spf", 'NULL')).translate(None, ',')
-      reason_type = (elem.findtext("row/policy_evaluated/reason/type", 'NULL')).translate(None, ',')
-      comment = (elem.findtext("row/policy_evaluated/reason/comment", 'NULL')).translate(None, ',')
-      envelope_to = (elem.findtext("identifiers/envelope_to", 'NULL')).translate(None, ',')
-      header_from = (elem.findtext("identifiers/header_from", 'NULL')).translate(None, ',')
-      dkim_domain = (elem.findtext("auth_results/dkim/domain", 'NULL')).translate(None, ',')
-      dkim_result = (elem.findtext("auth_results/dkim/result", 'NULL')).translate(None, ',')
-      dkim_hresult = (elem.findtext("auth_results/dkim/human_result", 'NULL')).translate(None, ',')
-      spf_domain = (elem.findtext("auth_results/spf/domain", 'NULL')).translate(None, ',')
-      spf_result = (elem.findtext("auth_results/spf/result", 'NULL')).translate(None, ',')
+      source_ip = (elem.findtext("row/source_ip", '')).translate(None, ',')
+      count = (elem.findtext("row/count", '')).translate(None, ',')
+      disposition = (elem.findtext("row/policy_evaluated/disposition", '')).translate(None, ',')
+      dkim = (elem.findtext("row/policy_evaluated/dkim", '')).translate(None, ',')
+      spf = (elem.findtext("row/policy_evaluated/spf", '')).translate(None, ',')
+      reason_type = (elem.findtext("row/policy_evaluated/reason/type", '')).translate(None, ',')
+      comment = (elem.findtext("row/policy_evaluated/reason/comment", '')).translate(None, ',')
+      envelope_to = (elem.findtext("identifiers/envelope_to", '')).translate(None, ',')
+      header_from = (elem.findtext("identifiers/header_from", '')).translate(None, ',')
+      dkim_domain = (elem.findtext("auth_results/dkim/domain", '')).translate(None, ',')
+      dkim_result = (elem.findtext("auth_results/dkim/result", '')).translate(None, ',')
+      dkim_hresult = (elem.findtext("auth_results/dkim/human_result", '')).translate(None, ',')
+      spf_domain = (elem.findtext("auth_results/spf/domain", '')).translate(None, ',')
+      spf_result = (elem.findtext("auth_results/spf/result", '')).translate(None, ',')
 
       # If you can identify internal IP
       x_host_name = "NULL"
