@@ -40,8 +40,8 @@ def get_meta(context):
       date_range_begin = (elem.findtext("date_range/begin", '')).translate(None, ',')
       date_range_end = (elem.findtext("date_range/end", '')).translate(None, ',')
 
-      report_meta =  "org_name='" + org_name + "', email='" + email + "', extra_contact_info='" + extra_contact_info \
-            + "', date_range_begin='" + date_range_begin + "', date_range_end='" + date_range_end + "', report_id='" + report_id + "'"
+      report_meta =  "org_name='" + org_name + "' email='" + email + "' extra_contact_info='" + extra_contact_info \
+            + "' date_range_begin='" + date_range_begin + "' date_range_end='" + date_range_end + "' report_id='" + report_id + "'"
       rm = 1
       root.clear();
       continue
@@ -53,7 +53,7 @@ def get_meta(context):
       p = elem.findtext("p", '')
       pct = elem.findtext("pct", '')
 
-      feedback_pub = "domain='" + domain + "', adkim='" + adkim + "', aspf='" + aspf + "', p='" + p + "', pct='" + pct + "'"
+      feedback_pub = "domain='" + domain + "' adkim='" + adkim + "' aspf='" + aspf + "' p='" + p + "' pct='" + pct + "'"
       pp = 1
       root.clear();
       continue      
@@ -98,11 +98,11 @@ def print_record(context, meta, args):
       #except: 
       #  x_host_name = "NULL"
 			
-      print meta + "', source_ip='" + source_ip + "', count='" + count + "', disposition='" + disposition + "', dkim='" + dkim \
-            + "', spf='" + spf + "', reason_type='" + reason_type + "', comment='" + comment + "', envelope_to='" + envelope_to \
-            + "', header_from='" + header_from + "', dkim_domain='" + dkim_domain + "', dkim_result='" + dkim_result \
-            + "', dkim_hresult='" + dkim_hresult + "', spf_domain='" + spf_domain + "', spf_result='" + spf_result  \
-            + "', x-host_name='" + x_host_name + "'"
+      print meta + "' source_ip='" + source_ip + "' count='" + count + "' disposition='" + disposition + "' dkim='" + dkim \
+            + "' spf='" + spf + "' reason_type='" + reason_type + "' comment='" + comment + "' envelope_to='" + envelope_to \
+            + "' header_from='" + header_from + "' dkim_domain='" + dkim_domain + "' dkim_result='" + dkim_result \
+            + "' dkim_hresult='" + dkim_hresult + "' spf_domain='" + spf_domain + "' spf_result='" + spf_result  \
+            + "' x-host_name='" + x_host_name + "'"
 
       root.clear();
       continue
