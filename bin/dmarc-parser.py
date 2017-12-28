@@ -91,7 +91,7 @@ def print_record(context, meta, args):
       spf_result = (elem.findtext("auth_results/spf/result", '')).translate(None, ',')
 
       # If you can identify internal IP
-      x_host_name = "NULL"
+      x_host_name = ""
       #try:
       #  if IS_INTERNAL_IP(source_ip):
       #    x_host_name = socket.getfqdn(source_ip)
